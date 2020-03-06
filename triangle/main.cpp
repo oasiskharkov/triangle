@@ -5,7 +5,9 @@ static const int SCREEN_WIDTH = 640;
 static const int SCREEN_HEIGHT = 480;
 
 RECT Rect{ 0, 0 };
-Point2D p1{ 20.0, 20.0 }, p2{ 20.0, -20.0 }, p3{ -20.0,  0.0 };
+Point2D p1{ 40.0, 40.0 };
+Point2D p2{ 40.0, -40.0 };
+Point2D p3{ -40.0,  0.0 };
 
 // the WindowProc function prototype
 LRESULT CALLBACK WindowProc(HWND hWnd,
@@ -132,16 +134,16 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
   {
     if (wParam == VK_LEFT)
     {
-      RotatePoint(M_PI / 36.0, p1);
-      RotatePoint(M_PI / 36.0, p2);
-      RotatePoint(M_PI / 36.0, p3);
+      RotatePoint(5 * M_PI / 180, p1);
+      RotatePoint(5 * M_PI / 180, p2);
+      RotatePoint(5 * M_PI / 180, p3);
       InvalidateRect(hWnd, NULL, false);
     }
     if (wParam == VK_RIGHT)
     {
-      RotatePoint(-M_PI / 36.0, p1);
-      RotatePoint(-M_PI / 36.0, p2);
-      RotatePoint(-M_PI / 36.0, p3);
+      RotatePoint(-5 * M_PI / 180, p1);
+      RotatePoint(-5 * M_PI / 180, p2);
+      RotatePoint(-5 * M_PI / 180, p3);
       InvalidateRect(hWnd, NULL, false);
     }
   } break;
