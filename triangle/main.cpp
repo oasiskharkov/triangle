@@ -44,7 +44,7 @@ int WINAPI WinMain(HINSTANCE hInstance,
   // create the window and use the result as the handle
   hWnd = CreateWindowEx(NULL,
     L"WindowClass1",    // name of the window class
-    L"DirectX",   // title of the window
+    L"Triangle",   // title of the window
     WS_OVERLAPPEDWINDOW ^ WS_MINIMIZEBOX ^ WS_MAXIMIZEBOX,    // window style
     300,    // x-position of the window
     300,    // y-position of the window
@@ -75,7 +75,6 @@ int WINAPI WinMain(HINSTANCE hInstance,
 
   // return this part of the WM_QUIT message to Windows
   return msg.wParam;
-
 }
 
 // this is the main message handler for the program
@@ -144,6 +143,48 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
       RotatePoint(-5 * M_PI / 180, p1);
       RotatePoint(-5 * M_PI / 180, p2);
       RotatePoint(-5 * M_PI / 180, p3);
+      InvalidateRect(hWnd, NULL, false);
+    }
+    if (wParam == VK_UP)
+    {
+      ScalePoint(0.1, p1);
+      ScalePoint(0.1, p2);
+      ScalePoint(0.1, p3);
+      InvalidateRect(hWnd, NULL, false);
+    }
+    if (wParam == VK_DOWN)
+    {
+      ScalePoint(-0.1, p1);
+      ScalePoint(-0.1, p2);
+      ScalePoint(-0.1, p3);
+      InvalidateRect(hWnd, NULL, false);
+    }
+    if ((char)wParam == 'a' || (char)wParam == 'A')
+    {
+      MovePoint(-1.0, 0, p1);
+      MovePoint(-1.0, 0, p2);
+      MovePoint(-1.0, 0, p3);
+      InvalidateRect(hWnd, NULL, false);
+    }
+    if ((char)wParam == 'd' || (char)wParam == 'D')
+    {
+      MovePoint(1.0, 0, p1);
+      MovePoint(1.0, 0, p2);
+      MovePoint(1.0, 0, p3);
+      InvalidateRect(hWnd, NULL, false);
+    }
+    if ((char)wParam == 'w' || (char)wParam == 'W')
+    {
+      MovePoint(0.0, -1.0, p1);
+      MovePoint(0.0, -1.0, p2);
+      MovePoint(0.0, -1.0, p3);
+      InvalidateRect(hWnd, NULL, false);
+    }
+    if ((char)wParam == 's' || (char)wParam == 'S')
+    {
+      MovePoint(0.0, 1.0, p1);
+      MovePoint(0.0, 1.0, p2);
+      MovePoint(0.0, 1.0, p3);
       InvalidateRect(hWnd, NULL, false);
     }
   } break;

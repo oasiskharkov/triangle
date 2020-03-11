@@ -31,6 +31,18 @@ void RotatePoint(double angle, Point2D& p)
   p.y = x * sin(angle) + y * cos(angle);
 }
 
+void ScalePoint(double scale, Point2D & p)
+{
+  p.x *= (scale + 1);
+  p.y *= (scale + 1);
+}
+
+void MovePoint(double x, double y, Point2D & p)
+{
+  p.x += x;
+  p.y += y;
+}
+
 LONG toLong(double x)
 {
   return static_cast<LONG>(round(x));

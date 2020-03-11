@@ -18,4 +18,6 @@ void drawAxis(HDC hdc, POINT p1, POINT p2);
 void drawPoint(HDC hdc, Point2D p);
 void drawLine(HDC hdc, Point2D p1, Point2D p2);
 void RotatePoint(double angle, Point2D& p);
+void ScalePoint(double scale, Point2D& p);
+void MovePoint(double x, double y, Point2D& p);
 LONG toLong(double x);
